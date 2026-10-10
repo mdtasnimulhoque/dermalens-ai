@@ -1,0 +1,63 @@
+
+# Python cache
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# macOS files
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Local datasets and processed data
+data/raw/
+data/processed/
+data/external/
+data/interim/
+
+# Large downloaded dataset files
+*.zip
+*.tar
+*.tar.gz
+*.7z
+
+# Model checkpoints and weights
+models/checkpoints/
+models/*.pt
+models/*.pth
+models/*.ckpt
+models/*.onnx
+
+# Experiment outputs
+*.log
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Local secrets and environment settings
+.env
+.env.*
+!.env.example
+
+# Editor settings
+.vscode/
+
+# Local dataset metadata and split files
+data/metadata/
+# Local per-image predictions derived from the dataset
+reports/*_predictions.csv
+
+# Local calibration outputs
+reports/baseline_a_temperature_scaling.csv
+
+# Local dataset audit reports containing machine-specific paths
+reports/milk10k_dataset_audit.json
+reports/milk10k_image_integrity_report.json

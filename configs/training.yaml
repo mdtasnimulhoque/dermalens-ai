@@ -1,0 +1,45 @@
+training:
+  experiment_name: "baseline_a_resnet50_clinical"
+
+  seed: 42
+
+  device: "mps"
+
+  epochs: 20
+
+  batch_size: 32
+
+  num_workers: 0
+
+  optimizer:
+    name: "AdamW"
+    learning_rate: 0.0001
+    weight_decay: 0.0001
+
+  loss:
+    name: "cross_entropy"
+    class_weighted: true
+
+  scheduler:
+    name: "ReduceLROnPlateau"
+    mode: "max"
+    factor: 0.5
+    patience: 2
+    min_lr: 0.000001
+
+  early_stopping:
+    enabled: true
+    patience: 5
+    monitor: "macro_f1"
+
+  checkpoint:
+    directory: "models/checkpoints"
+    save_best_only: true
+
+  evaluation:
+    primary_metric: "macro_f1"
+    secondary_metrics:
+      - "balanced_accuracy"
+      - "accuracy"
+      - "precision"
+      - "recall"
