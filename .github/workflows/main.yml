@@ -13,7 +13,7 @@ permissions:
 
 jobs:
   syntax-check:
-    name: Check Python Syntax
+    name: Syntax and Unit Tests
     runs-on: ubuntu-latest
 
     steps:
@@ -25,5 +25,8 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Check Python files
-        run: python -m compileall -q src
+      - name: Check Python syntax
+        run: python -m compileall -q src test_paths.py
+
+      - name: Run dataset path unit tests
+        run: python -m unittest test_paths -v
