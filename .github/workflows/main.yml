@@ -26,7 +26,7 @@ jobs:
           python-version: "3.12"
 
       - name: Check Python syntax
-        run: python -m compileall -q src test_paths.py
+        run: python -m compileall -q src test_paths.py test_split_integrity.py
 
-      - name: Run dataset path unit tests
-        run: python -m unittest test_paths -v
+      - name: Run dataset and split integrity unit tests
+        run: python -m unittest test_paths test_split_integrity -v
